@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.scrub-map.json
+*.scrubbed.*
+.DS_Store
+coverage/

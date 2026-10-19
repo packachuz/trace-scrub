@@ -1,0 +1,56 @@
+{
+  "name": "trace-scrub",
+  "version": "0.1.0",
+  "description": "Relational, format-preserving sanitizer for HTTP Archive (.har) captures, JSON/JSONL logs, .env files, and raw HTTP/cURL traces with reversible AES-256-GCM vault support.",
+  "keywords": [
+    "har",
+    "privacy",
+    "security",
+    "redact",
+    "sanitize",
+    "anonymize",
+    "pseudonymize",
+    "jwt",
+    "reverse-engineering",
+    "mitmproxy",
+    "secret-scanning",
+    "llm-security"
+  ],
+  "license": "MIT",
+  "author": "packachuz",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/packachuz/trace-scrub.git"
+  },
+  "type": "module",
+  "bin": {
+    "trace-scrub": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "clean": "node -e \"fs.rmSync('dist', { recursive: true, force: true })\"",
+    "prepublishOnly": "npm run clean && npm run build && npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
